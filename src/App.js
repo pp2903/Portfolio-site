@@ -1,12 +1,20 @@
+import Profile from './Profile';
 import './index.css'
-
 
 
 
 
 const App = () => {
   return (
-    <div className="body">App</div>
+    <div className="body">
+
+      <Profile/>
+
+      
+
+
+
+    </div>
   )
 }
 

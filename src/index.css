@@ -1,3 +1,50 @@
 * {
     background-color: bisque;
+    position: relative;
+}
+
+@import url('https://fonts.cdnfonts.com/css/elegant-2');
+.body{
+    margin: 20px;
+    padding: 50px;
+}
+
+
+.name-heading{
+    font-family: 'ELEGANT', sans-serif;
+    display: inline-block;
+    font-size: 300%;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.profile-pic{
+    /* display: inline-block; */
+    width: 12rem;
+    
+    border-radius: 2rem;
+    float: right;
+    animation: fadeInAnimation ease 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+
+.social-handle{
+    padding: 2px 9px 3px;
 }
