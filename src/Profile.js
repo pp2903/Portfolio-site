@@ -1,33 +1,12 @@
 // import { useState } from "react"
+import { links } from './data'
 
-const links = [
-  {
-    name: "github",
-    url: "https://github.com/pp2903",
-    img: "./icons/github.png",
-  },
-  {
-    name: "leetcode",
-    url: "https://leetcode.com/priyampranshu/",
-    img: "./icons/leetcode.png",
-  },
-  {
-    name: "linkedIn",
-    url: "https://www.linkedin.com/in/pp2903/",
-    img: "./icons/linkedIn.png",
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/PranshuPriyam",
-    img: "./icons/x.png",
-  },
-];
 
 const Social = () => {
   const newLinks = links.map((link) => {
-    return <SocialButton name={link.name} url={link.url} img={link.img} />;
+    return <SocialButton name={link.name} url={link.url} img={link.img} key={link.id} />;
   });
-
+  
   return (
     <>
       <div className="social-bar slide-in" id="slider">{newLinks}</div>
@@ -36,10 +15,11 @@ const Social = () => {
 };
 
 const SocialButton = (props) => {
-  const { name, url, img } = props;
+  const { name, url, img, key } = props;
+  
   return (
     <>
-      <a id="" className="social-handle" href={url}>
+      <a id="" className="icon-handle" href={url}>
         <img className="zoom" src={img} alt={name} />
       </a>
     </>
@@ -47,10 +27,12 @@ const SocialButton = (props) => {
 };
 
 const Profile = () => {
-  return (
+  
+  
+    return (
     <>
       <div className="top-bar">
-        <img className="profile-pic" src="./profile.png" alt="profile p" />
+        <img  className="profile-pic" src="./profile.png" alt="profile p" />
         <div className="name-heading">
           Pranshu Priyam
           <hr />

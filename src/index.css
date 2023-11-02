@@ -1,9 +1,13 @@
 * {
   position: relative;
+  animation: fadeInAnimation ease 1.8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 body {
   /* background-image:linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */
+  background: fixed;
   background-image: linear-gradient(#f8cb9b, #53c3f2);
 }
 
@@ -14,30 +18,33 @@ body {
 }
 
 .name-heading {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   font-family: "ELEGANT", sans-serif;
   /* display: inline-block; */
   font-size: 300%;
-  animation: fadeInAnimation ease 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  
   float: right;
 }
 
 .profile-pic {
   /* display: inline-block; */
-  transition: transform 0.9s;
+  transition: transform 0.9s, padding-bottom 1s; 
+  margin:10px;
   width: 20rem;
   display: inline-block;
   justify-content: center;
 
   border-radius: 2rem;
   /* float: right; */
-  animation: fadeInAnimation ease 4s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  
 }
+
+
 .profile-pic:hover{
     transform: scale(1.5);
+    padding-bottom: 20px;
 }
 
 
@@ -60,9 +67,14 @@ hr {
   );
 }
 
-.social-handle {
-  padding: 2px 9px 3px;
+.social-bar .icon-handle {
+  
   float: right;
+}
+
+.icon-handle{
+  padding: 2px 9px 3px;
+  
 }
 
 /* sliding animation */
@@ -125,17 +137,25 @@ hr {
   transform: scale(
     1.5
   ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  
 }
 
 /* skills */
 
 .skills-list {
+  
   display: inline-block;
-  margin-top: 15%;
+  margin-top: 9%;
 }
 
 .subheading {
   font-family: "ELEGANT", sans-serif;
   font-weight: lighter;
   margin-bottom: 20px;
+}
+
+
+.subheading hr{
+  /* display: none; */
+  max-width: fit-content;
 }

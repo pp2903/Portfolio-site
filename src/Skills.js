@@ -1,25 +1,33 @@
 
-import { skills }from './skills_data'
+import { skills }from './data'
 
 
-
+const Skill = (props)=>{
+    const { url, name} = props
+    
+    return <>
+    
+    
+        <img className="icon-handle zoom" src={url} alt={name}/>
+    
+    </>
+}
 
 
 const Skills = () => {
   
     const skillsList = skills.map((skill)=>{
         return(
-
-            <img src="skill.url" alt="skill.name"></img>
+            <Skill url={skill.url} name={skill.name} />
         )
         
 
     })
-  
-  
+    
     return (
-    <div className="skills-list">
-        <h1 className="subheading">Skills</h1>
+    <div  className="skills-list">
+        <h1  className="subheading">Skills
+        <hr/></h1>
         
         {skillsList}
         
