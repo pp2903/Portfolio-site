@@ -1,6 +1,6 @@
 import Profile from "./Profile";
 import Skills from "./Skills";
-import Projects from './Projects'
+import Projects from './ProjectDetails/Projects'
 import "./index.css";
 
 const App = () => {
