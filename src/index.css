@@ -140,6 +140,15 @@ hr {
   
 }
 
+.card-body.zoom {
+  transition: transform 0.4s;
+}
+.card-body.zoom:hover {
+  transform: scale(
+    1.2
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  
+}
 /* skills */
 
 .skills-list {
@@ -151,7 +160,9 @@ hr {
 .project-heading , .subheading {
   font-family: "ELEGANT", sans-serif;
   font-weight: lighter;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 250%;
+  
 }
 
 
@@ -162,5 +173,20 @@ hr {
 
 
 h4 {
+  
   font-weight: lighter;
+  font-size: 170%;
+  display: inline;
+  padding-right: 4rem;
+ 
+
 }
+
+.card-body{
+  
+  /* display: block; */
+  display:inline-table;
+  margin: 3rem 4rem;
+  margin-left: 0;
+}
+
