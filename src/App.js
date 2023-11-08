@@ -1,5 +1,6 @@
 import Profile from "./Profile";
 import Skills from "./Skills";
+import Projects from './Projects'
 import "./index.css";
 
 const App = () => {
@@ -8,6 +9,8 @@ const App = () => {
       <Profile />
       
       <Skills />
+
+        <Projects/>
     </div>
   );
 };

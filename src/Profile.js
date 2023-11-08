@@ -15,7 +15,7 @@ const Social = () => {
 };
 
 const SocialButton = (props) => {
-  const { name, url, img, key } = props;
+  const { name, url, img } = props;
   
   return (
     <>

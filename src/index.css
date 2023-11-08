@@ -148,7 +148,7 @@ hr {
   margin-top: 9%;
 }
 
-.subheading {
+.project-heading , .subheading {
   font-family: "ELEGANT", sans-serif;
   font-weight: lighter;
   margin-bottom: 20px;
@@ -158,4 +158,9 @@ hr {
 .subheading hr{
   /* display: none; */
   max-width: fit-content;
+}
+
+
+h4 {
+  font-weight: lighter;
 }
