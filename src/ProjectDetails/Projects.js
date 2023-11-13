@@ -143,9 +143,10 @@ import { Button, CardActions } from "@mui/material";
 
 
 
-import { useState } from "react";
+import { useState} from "react";
 import ProjectPage from "./ProjectPage";
 
+export const ProjTopicContext  = React.createContext();
 const project_data = {
   react: [
     {
@@ -186,7 +187,8 @@ const Projects = () => {
 
 const ProjectTopic = (props) => {
   const { topic_name, projs } = props;
-
+  
+  
   const [projPage, setProjPage] = useState(false);
 
   const list = projs.map((proj) => {
@@ -217,14 +219,16 @@ const ProjectTopic = (props) => {
     );
   }
   else{
-    return <>
-      <ProjectPage setProjPage={setProjPage}/>
-    </>
+    return <ProjTopicContext.Provider value={{setProjPage}}>
+      <ProjectPage/>
+    </ProjTopicContext.Provider>
   }
 };
 
 const CardComp = (props) => {
   const { setProjPage } = props;
+
+  
 
   const handleDetails = () => {
     setProjPage(true);

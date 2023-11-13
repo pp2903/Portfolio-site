@@ -4,14 +4,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActions  } from '@mui/material';
 import './proj.css'
+import { useContext } from 'react';
+import { ProjTopicContext }  from './Projects.js'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
-
-
-const ProjectPage = (props) => {
+const ProjectPage = () => {
   
-   
-  const {setProjPage } = props
+   const value = useContext(ProjTopicContext)
+
+    const setProjPage  = value.setProjPage;
   
   const handleBack= ()=>{
     setProjPage(false)
@@ -50,6 +52,7 @@ const ProjCard = (props)=>{
   return (
     <Card sx={{ maxWidth: 1150 }}>
       
+      <Button  size="small" onClick={props.handleBack}><ArrowBackIcon color="primary" sx={{fontSize:45}}/></Button>
       <CardMedia
         sx={{ height:400}}
         image="/static/images/cards/contemplative-reptile.jpg"
@@ -67,7 +70,6 @@ const ProjCard = (props)=>{
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={props.handleBack}>Back</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
