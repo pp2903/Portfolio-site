@@ -236,3 +236,8 @@ h4 {
   margin-left: 0;
 }
 
+/* feedback form */
+
+.MuiButton-root{
+  margin-top: 10px;
+}

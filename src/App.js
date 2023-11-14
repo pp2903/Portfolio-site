@@ -1,7 +1,9 @@
 import Profile from "./Profile";
 import Skills from "./Skills";
+
 import Projects from './ProjectDetails/Projects'
 import "./index.css";
+import FeedbackForm from "./FeedbackComp/FeedbackForm";
 
 const App = () => {
   return (
@@ -11,6 +13,8 @@ const App = () => {
       <Skills />
 
         <Projects/>
+
+        <FeedbackForm/>
     </div>
   );
 };
