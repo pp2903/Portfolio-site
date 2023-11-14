@@ -13,7 +13,7 @@ const Skill = (props) => {
 
 const Skills = () => {
   const skillsList = skills.map((skill) => {
-    return <Skill url={skill.url} name={skill.name} />;
+    return <Skill key={skill.name} url={skill.url} name={skill.name} />;
   });
 
 

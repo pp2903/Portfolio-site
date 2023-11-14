@@ -36,6 +36,10 @@ export const skills = [
         name:"Git",
         url:"./icons/git.png",
     },
+    {
+        name:"Visual Studio Code",
+        url:"./icons/vscode.png",
+    },
 
 
 ]
