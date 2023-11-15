@@ -13,7 +13,11 @@ const FeedbackForm = () => {
 };
 
 const Form = () => {
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState({
+    name:'',
+    email:'',
+    feedback_text:'',
+  });
     
   const handleFeebackSubmit = (e) => {
     e.preventDefault();
@@ -22,8 +26,8 @@ const Form = () => {
   };
 
   const handleFeebackChange = (e)=>{
-    const newFeeback = e.target.value;
-    
+    const newFeeback = {...feedback,[e.target.name]:e.target.value}
+    console.log(newFeeback);
     setFeedback(newFeeback)
 
   }
@@ -32,24 +36,35 @@ const Form = () => {
       <Box
         component="form"
         sx={{
-          width: "500px",
+          width: "50%",
           maxWidth: "100%",
+        
         }}
+        
         noValidate
         autoComplete="off"
       >
 
-        <h4>Feedback!</h4>
+        <h4 id="feedback-heading">Feedback!</h4>
+
+        <TextField onChange={handleFeebackChange} fullWidth name="name" sx={{display:'block',marginBottom:'6px', bgcolor: "white" }} id="standard-basic" label="Name" variant="standard" />
+        <TextField onChange={handleFeebackChange} fullWidth name="email" sx={{display:'block',marginBottom:'6px', bgcolor: "white" }} id="standard-basic" label="Email" variant="standard" />
         <TextField
+          minRows={10}
+          
+          multiline
           onChange={handleFeebackChange}
           name="feedback"
           sx={{ bgcolor: "white" }}
           className="feedback"
           fullWidth
           label="Share your thoughts!"
-          id="fullWidth"
+          id="feedback-field"
           variant="standard"
+          size="large"
         />
+
+      
 
         <Button
             type="submit"
@@ -64,5 +79,7 @@ const Form = () => {
     </>
   );
 };
+
+
 
 export default FeedbackForm;

@@ -238,6 +238,11 @@ h4 {
 
 /* feedback form */
 
-.MuiButton-root{
-  margin-top: 10px;
+#feedback-heading{
+  margin-bottom: 2rem;
+  display: block;
+}
+
+#feedback-textarea{
+  width: fit-content;
 }
