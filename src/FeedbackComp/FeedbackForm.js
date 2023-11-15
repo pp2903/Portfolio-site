@@ -2,7 +2,8 @@ import Button from "@mui/material/Button";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
+import { useState,useRef,useEffect } from "react";
+import emailjs from '@emailjs/browser';
 
 const FeedbackForm = () => {
   return (
@@ -18,29 +19,39 @@ const Form = () => {
     email:'',
     feedback_text:'',
   });
-    
-  const handleFeebackSubmit = (e) => {
-    e.preventDefault();
-    console.log("successful submit")
-    console.log(feedback)
-  };
+  
+
+  
+  
 
   const handleFeebackChange = (e)=>{
+    
     const newFeeback = {...feedback,[e.target.name]:e.target.value}
     console.log(newFeeback);
     setFeedback(newFeeback)
 
   }
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_4oiysbb', 'template_3c5qzfe', form.current, 'QIU5Ootiw_fM5NswA')
+    
+    e.target.reset();
+      
+  };
   return (
     <>
       <Box
+        ref={form}
         component="form"
         sx={{
           width: "50%",
           maxWidth: "100%",
         
         }}
-        
+        onSubmit={sendEmail}
         noValidate
         autoComplete="off"
       >
@@ -68,7 +79,7 @@ const Form = () => {
 
         <Button
             type="submit"
-          onClick={handleFeebackSubmit}
+          
           sx={{ marginTop: 2 }}
           variant="contained"
           color="primary"

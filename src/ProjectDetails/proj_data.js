@@ -14,6 +14,14 @@ export const project_data = {
         img: "./pictures/StripeClone.png",
         description:"Stripe clone is built using HTML, CSS, JavaScript, and React.js. It's a dynamic showcase of my work, with an inviting homepage, detailed project pages, and a contact section. Thanks to responsive design and interactive features, it effectively presents my skills and projects."
       },
+
+      {
+        id: 3,
+        name: "Shopping Cart",
+        url: "https://github.com/pp2903/Cart-App",
+        img: "./pictures/StripeClone.png",
+        description:"A responsive shopping cart application developed with React.js, featuring dynamic cart operations using hooks like useState, useEffect, and useReducer. "
+      },
     ],
   
     django: [
