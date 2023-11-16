@@ -224,10 +224,11 @@ h4 {
   font-size: 170%;
   display: inline;
   padding-right: 4rem;
+  color: black;
  
 
 }
-
+ 
 .card-body{
   
   /* display: block; */

@@ -143,7 +143,7 @@ import { Button, CardActions } from "@mui/material";
 import { project_data } from "./proj_data";
 
 
-import { useState} from "react";
+import { useState,useRef} from "react";
 import ProjectPage from "./ProjectPage";
 
 export const ProjTopicContext  = React.createContext();
@@ -194,7 +194,7 @@ const ProjectTopic = (props) => {
     );
   }
   else{
-    return <ProjTopicContext.Provider value={{setProjPage}}>
+    return <ProjTopicContext.Provider  value={{setProjPage,project_data}}>
       <ProjectPage/>
     </ProjTopicContext.Provider>
   }
@@ -205,12 +205,14 @@ const CardComp = (props) => {
 
   
 
-  const handleDetails = () => {
+  const handleDetails = (e) => {
     setProjPage(true);
+    console.log(e);
+    
   };
-
+  const detailsCardRef = useRef();
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card ref={detailsCardRef} sx={{ maxWidth: 345 }}>
       <CardMedia sx={{ height: 165 }} image={props.img} title={props.name} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -224,7 +226,7 @@ const CardComp = (props) => {
         <Button href={props.url} size="small">
           Code
         </Button>
-        <Button size="small">Visit</Button>
+        {/* <Button size="small">Visit</Button> */}
         <Button size="small" onClick={handleDetails}>
           Details
         </Button>
