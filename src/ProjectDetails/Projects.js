@@ -5,7 +5,6 @@
 // import Typography from '@mui/material/Typography';
 // import { Button, CardActionArea, CardActions } from '@mui/material';
 
-
 // import { useState } from 'react';
 
 // const project_data = {
@@ -35,11 +34,7 @@
 //     },
 //   ]
 
-
 // }
-
-
-
 
 // const Projects = () => {
 //   return (
@@ -48,59 +43,41 @@
 
 //     <ProjectTopic topic_name="React Projects" projs={project_data.react} />
 //     <ProjectTopic topic_name="Django Projects" projs={project_data.django} />
-   
 
-    
 //     </>
-   
 
 //   )
 // }
 
 // const ProjectTopic = (props)=>{
 //   const  { topic_name, projs } = props
-  
-  
 
-
-
-
-  
 //   const list = projs.map((proj)=>{
 //     return <span key={proj.id} className='card-body zoom'>
 //      <CardComp style={{display:'inline'}} name={proj.name} url={proj.url} img={proj.img}/>
 //      <br/>
 //     </span>
-   
-    
+
 //   })
 
-  
 //   return <span>
-  
+
 //     <h4>{topic_name}</h4>
-    
-    
+
 //     <div>{list}</div>
-  
-  
-  
+
 //   </span>
 // }
 
-
 // const CardComp = (props)=>{
 
-
-
-  
 //   const [card,setCard] = useState(false)
 //   const handleCard = ()=>{
 //     if(card) setCard(false)
 //     else setCard(true)
-   
+
 //   }
-  
+
 //   return (
 //     <Card sx={{ maxWidth: 345 }}>
 //       <CardMedia
@@ -109,7 +86,7 @@
 //         title={props.name}      />
 //       <CardContent>
 //         <Typography gutterBottom variant="h5" component="div">
-//         {props.name} 
+//         {props.name}
 //         </Typography>
 //         <Typography variant="body2" color="text.secondary">
 //           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -125,14 +102,7 @@
 //   );
 // }
 
-
-
-
-
 // export default Projects
-
-
-
 
 import * as React from "react";
 import Card from "@mui/material/Card";
@@ -142,17 +112,17 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { project_data } from "./proj_data";
 
-
-import { useState,useRef} from "react";
+import { useState, useRef } from "react";
 import ProjectPage from "./ProjectPage";
 
-export const ProjTopicContext  = React.createContext();
-
+export const ProjTopicContext = React.createContext();
 
 const Projects = () => {
   return (
     <>
-      <h2 id="project-heading-text" className="project-heading">Projects</h2>
+      <h2 id="project-heading-text" className="project-heading">
+        Projects
+      </h2>
 
       <ProjectTopic topic_name="React Projects" projs={project_data.react} />
       <ProjectTopic topic_name="Django Projects" projs={project_data.django} />
@@ -162,14 +132,14 @@ const Projects = () => {
 
 const ProjectTopic = (props) => {
   const { topic_name, projs } = props;
-  
-  
-  const [projPage, setProjPage] = useState(false);
+
+  const [projPage, setProjPage] = useState({status:false,id:null});
 
   const list = projs.map((proj) => {
     return (
       <span key={proj.id} className="card-body zoom">
         <CardComp
+          comp_id = {proj.id}
           setProjPage={setProjPage}
           style={{ display: "inline" }}
           name={proj.name}
@@ -184,7 +154,7 @@ const ProjectTopic = (props) => {
 
   // returns the card list
 
-  if (!projPage) {
+  if (!projPage.status) {
     return (
       <span>
         <h4>{topic_name}</h4>
@@ -192,30 +162,29 @@ const ProjectTopic = (props) => {
         <div>{list}</div>
       </span>
     );
-  }
-  else{
-    return <ProjTopicContext.Provider  value={{setProjPage,project_data}}>
-      <ProjectPage/>
-    </ProjTopicContext.Provider>
+  } else {
+    return (
+      <ProjTopicContext.Provider value={{ setProjPage, project_data,projPage }}>
+        <ProjectPage />
+      </ProjTopicContext.Provider>
+    );
   }
 };
 
 const CardComp = (props) => {
-  const { setProjPage } = props;
-
-  
+  const { setProjPage,comp_id } = props;
 
   const handleDetails = (e) => {
-    setProjPage(true);
-    console.log(e);
-    
+    setProjPage({status:true,id:comp_id});
+    // console.log(e);
+    // console.log(comp_id);
   };
   const detailsCardRef = useRef();
   return (
     <Card ref={detailsCardRef} sx={{ maxWidth: 345 }}>
       <CardMedia sx={{ height: 165 }} image={props.img} title={props.name} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography id="name" gutterBottom variant="h5" component="div">
           {props.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -227,9 +196,9 @@ const CardComp = (props) => {
           Code
         </Button>
         {/* <Button size="small">Visit</Button> */}
-        <Button size="small" onClick={handleDetails}>
+        {/* <Button size="small" onClick={handleDetails}>
           Details
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );

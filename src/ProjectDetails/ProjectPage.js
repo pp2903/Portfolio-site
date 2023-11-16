@@ -7,6 +7,7 @@ import './proj.css'
 import { useContext } from 'react';
 import { ProjTopicContext }  from './Projects.js'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { project_data } from './proj_data.js';
 
 
 const ProjectPage = () => {
@@ -16,11 +17,11 @@ const ProjectPage = () => {
     const setProjPage  = value.setProjPage;
   
   const handleBack= ()=>{
-    setProjPage(false)
+    setProjPage({status:false,id:null})
     
 
   }
-
+  const proj_id = value.projPage.id;
   
   return (
 
@@ -29,7 +30,7 @@ const ProjectPage = () => {
     <div className="project-page-container">
     
     
-    <ProjCard handleBack={handleBack}/>
+    <ProjCard proj_id = {proj_id}  handleBack={handleBack}/>
     
     
     </div>
@@ -47,8 +48,9 @@ const ProjectPage = () => {
 
 
 const ProjCard = (props)=>{
-
-  
+  const {proj_id} = props;
+  const proj = project_data.react.filter((obj)=> obj.id===proj_id)
+  console.log(proj)
   return (
     <Card sx={{ maxWidth: 1150 }}>
       
@@ -62,11 +64,10 @@ const ProjCard = (props)=>{
       
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {proj.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {proj.description}
         </Typography>
       </CardContent>
       <CardActions>
