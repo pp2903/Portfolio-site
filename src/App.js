@@ -5,8 +5,15 @@ import Projects from './ProjectDetails/Projects'
 import "./index.css";
 import FeedbackForm from "./FeedbackComp/FeedbackForm";
 
+import { React } from "react";
+import { project_data } from "./ProjectDetails/proj_data";
+
+
+export const AppContext = React.createContext();
 const App = () => {
   return (
+    <AppContext.Provider value={{project_data}}>
+    
     <div className="body">
       <Profile />
       
@@ -16,6 +23,9 @@ const App = () => {
 
         <FeedbackForm/>
     </div>
+    
+    </AppContext.Provider>
+    
   );
 };
 
