@@ -12,7 +12,7 @@ export const AppContext  = createContext()
 
 const App = () => {
   return (
-    <AppContext.Provider value ={{project_data}} >
+    <AppContext.Provider  value ={{project_data}} >
     
     <div className="body">
       <Profile />

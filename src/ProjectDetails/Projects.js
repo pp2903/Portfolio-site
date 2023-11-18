@@ -23,7 +23,7 @@ const Projects = () => {
     <>
       <h2 id="project-heading-text" className="project-heading">
         Projects
-      </h2>
+      </h2> 
 
       <ProjectTopic topic_name="React Projects" projs={val.project_data.react} />
       <ProjectTopic topic_name="Django Projects" projs={val.project_data.django} />
