@@ -7,20 +7,26 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { project_data } from "./proj_data";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import ProjectPage from "./ProjectPage";
+import { AppContext } from "../App";
 
 export const ProjTopicContext = React.createContext();
 
 const Projects = () => {
+
+  const val = useContext(AppContext);
+  
+
+  
   return (
     <>
       <h2 id="project-heading-text" className="project-heading">
         Projects
       </h2>
 
-      <ProjectTopic topic_name="React Projects" projs={project_data.react} />
-      <ProjectTopic topic_name="Django Projects" projs={project_data.django} />
+      <ProjectTopic topic_name="React Projects" projs={val.project_data.react} />
+      <ProjectTopic topic_name="Django Projects" projs={val.project_data.django} />
     </>
   );
 };
