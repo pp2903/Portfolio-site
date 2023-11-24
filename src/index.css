@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 * {
   position: relative;
   animation: fadeInAnimation ease 1.8s;
@@ -229,12 +235,18 @@ h4 {
 
 }
  
+
+h4.project-type{
+  text-align: center;
+  display: block;
+  margin: 60px 0px;
+}
 .card-body{
   
   /* display: block; */
   display:inline-table;
   margin: 3rem 4rem;
-  margin-left: 0;
+  /* margin-left: 0; */
 }
 
 /* feedback form */

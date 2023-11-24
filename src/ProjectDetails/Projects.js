@@ -62,7 +62,7 @@ const ProjectTopic = (props) => {
   if (!projPage) {
     return (
       <span>
-        <h4>{topic_name}</h4>
+        <h4 class='project-type'>{topic_name}</h4>
 
         <div>{list}</div>
       </span>
