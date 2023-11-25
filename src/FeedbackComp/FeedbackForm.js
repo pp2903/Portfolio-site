@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { useState,useRef,useEffect } from "react";
+import { useState,useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 const FeedbackForm = () => {

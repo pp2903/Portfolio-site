@@ -1,6 +1,13 @@
-.project-page-container{
-    display:block;
-    margin: 2.5rem 0rem;
+.projects-container{
+    display: block;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: flex-start;
+}
 
-
+.projects-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
 }

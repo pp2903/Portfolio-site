@@ -21,7 +21,7 @@ const Projects = () => {
   
   return (
     <>
-      <h2 id="project-heading-text" className="project-heading">
+      <h2 id="project" className="project-heading ">
         Projects
       </h2> 
 
@@ -61,10 +61,10 @@ const ProjectTopic = (props) => {
 
   if (!projPage) {
     return (
-      <span>
-        <h4 class='project-type'>{topic_name}</h4>
+      <span className="projects-container">
+        <h4 class="project-topic">{topic_name}</h4>
 
-        <div>{list}</div>
+        <div className="projects-list">{list}</div>
       </span>
     );
   } else {

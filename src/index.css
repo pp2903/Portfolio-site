@@ -193,11 +193,11 @@ hr {
 }
 
 .card-body.zoom {
-  transition: transform 0.4s;
+  transition: transform 0.37s;
 }
 .card-body.zoom:hover {
   transform: scale(
-    1.2
+    1
   ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   
 }
@@ -224,18 +224,22 @@ hr {
 }
 
 
+
 h4 {
   
   font-weight: lighter;
   font-size: 170%;
   display: inline;
-  padding-right: 4rem;
   color: black;
  
 
 }
  
+.project-topic{
+  display: block;
+  text-align: center;
 
+}
 h4.project-type{
   text-align: center;
   display: block;
@@ -245,7 +249,7 @@ h4.project-type{
   
   /* display: block; */
   display:inline-table;
-  margin: 3rem 4rem;
+  transform: scale(.8);
   /* margin-left: 0; */
 }
 
