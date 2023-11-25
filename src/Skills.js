@@ -1,11 +1,30 @@
 import { skills } from "./data";
+
 import { useState } from "react";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Skill = (props) => {
   const { url, name } = props;
 
   return (
     <>
+ 
+    
       <img className="icon-handle zoom" src={url} alt={name} />
     </>
   );

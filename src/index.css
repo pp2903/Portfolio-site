@@ -119,15 +119,12 @@ hr {
   );
 }
 
-.social-bar .icon-handle {
+.social-bar  {
   
   float: right;
 }
 
-.icon-handle{
-  padding: 2px 9px 3px;
-  
-}
+
 
 /* sliding animation */
 #slider {
@@ -263,3 +260,9 @@ h4.project-type{
 #feedback-textarea{
   width: fit-content;
 }
+
+.icon-handle{
+  margin: 6px;
+}
+
+

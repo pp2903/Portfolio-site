@@ -90,7 +90,7 @@ const CardComp = (props) => {
   const detailsCardRef = useRef();
   return (
     <Card ref={detailsCardRef} sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 165 }} image={props.img} title={props.name} />
+      <CardMedia style={{backgroundSize:'contain'}} sx={{ height: 165 }} image={props.img} title={props.name} />
       <CardContent>
         <Typography name="name"  gutterBottom variant="h5" component="div">
           {props.name}
