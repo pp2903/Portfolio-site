@@ -1,5 +1,6 @@
 // import { useState } from "react"
 import { links } from './data'
+import { Typography } from "@mui/material"
 
 
 const Social = () => {
@@ -34,7 +35,10 @@ const Profile = () => {
       <div className="top-bar">
         <img  className="profile-pic" src="./profile.png" alt="profile p" />
         <div className="name-heading">
+        <Typography variant="h2" gutterBottom>
+        
           Pranshu Priyam
+      </Typography>
           <hr />
           <Social />
         </div>

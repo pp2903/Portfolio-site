@@ -4,7 +4,7 @@ import Skills from "./Skills";
 import Projects from './ProjectDetails/Projects'
 import FeedbackForm from "./FeedbackComp/FeedbackForm";
 import './index.css'
-
+import Footer from "./Footer";
 import { createContext } from "react";
 import { project_data } from "./ProjectDetails/proj_data";
 
@@ -22,6 +22,8 @@ const App = () => {
         <Projects/>
 
         <FeedbackForm/>
+
+        <Footer/>
     </div>
     
  
