@@ -1,30 +1,11 @@
 import { skills } from "./data";
-
-import { useState } from "react";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { Typography } from "@mui/material";
 
 const Skill = (props) => {
   const { url, name } = props;
 
   return (
     <>
- 
-    
       <img className="icon-handle zoom" src={url} alt={name} />
     </>
   );
@@ -35,20 +16,17 @@ const Skills = () => {
     return <Skill key={skill.name} url={skill.url} name={skill.name} />;
   });
 
-
-  const [hovered, setHovered] = useState(false);
-  const toggleHover = () => setHovered(!hovered);
-  
   return (
     <div className="skills-list">
-      
-      <h2 className={`subheading`}
-      onMouseEnter={toggleHover}
-      onMouseLeave={toggleHover}>
-        {/* {`${hovered ? 'I may have a few skills! ' : 'Skills!'}`} */}
+      <Typography
+        className="subheading"
+        variant="h3"
+        component="h3"
+        gutterBottom
+      >
         Skills
-        <hr />
-      </h2>
+      </Typography>
+
       {skillsList}
     </div>
   );

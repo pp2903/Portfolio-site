@@ -1,10 +1,10 @@
 import Button from "@mui/material/Button";
-
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-
+import { Typography } from "@mui/material";
 const FeedbackForm = () => {
   return (
     <div>
@@ -44,63 +44,80 @@ const Form = () => {
     display: "block",
     marginBottom: "6px",
     bgcolor: "white",
-    borderRadius: "10px"
+    borderRadius: "6px",
   };
   return (
     <>
       <Box
         ref={form}
         component="form"
-        sx={{
-          width: "50%",
-          maxWidth: "100%",
-        }}
+        sx={{ flexGrow: 1 }}
         onSubmit={sendEmail}
         noValidate
         autoComplete="off"
       >
-        <h4 id="feedback-heading">Feedback!</h4>
-
-        <TextField
-          onChange={handleFeebackChange}
-          fullWidth
-          name="name"
-          sx={textFieldAttrs}
-          id="standard-basic"
-          label="Name"
-          variant="standard"
-        />
-        <TextField
-          onChange={handleFeebackChange}
-          fullWidth
-          name="email"
-          sx={textFieldAttrs}
-          id="standard-basic"
-          label="Email"
-          variant="standard"
-        />
-        <TextField
-          minRows={10}
-          multiline
-          onChange={handleFeebackChange}
-          name="feedback"
-          sx={textFieldAttrs}
-          className="feedback"
-          fullWidth
-          label="Share your thoughts!"
-          id="feedback-field"
-          variant="standard"
-          size="large"
-        />
-
-        <Button
-          type="submit"
-          sx={{ marginTop: 2 }}
-          variant="contained"
-          color="primary"
+        <Typography
+          id="feedback-heading"
+          variant="h5"
+          component="h5"
+          gutterBottom
         >
-          Submit
-        </Button>
+          {" "}
+          Feedback!
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <TextField
+              onChange={handleFeebackChange}
+              fullWidth
+              name="name"
+              sx={textFieldAttrs}
+              id="standard-basic"
+              label="Name"
+              variant="standard"
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <TextField
+              onChange={handleFeebackChange}
+              fullWidth
+              name="email"
+              sx={textFieldAttrs}
+              id="standard-basic"
+              label="Email"
+              variant="standard"
+            />
+          </Grid>
+
+
+
+          <Grid item xs={12} >
+          <TextField
+            minRows={10}
+            multiline
+            onChange={handleFeebackChange}
+            name="feedback"
+            sx={textFieldAttrs}
+            className="feedback"
+            fullWidth
+            label="Share your thoughts!"
+            id="feedback-field"
+            variant="standard"
+            size="large"
+            />
+            </Grid>
+
+          
+        </Grid>
+        <Button
+            type="submit"
+            sx={{ marginTop: 2 }}
+            variant="contained"
+            color="primary"
+          >
+            Submit
+          </Button>
       </Box>
     </>
   );

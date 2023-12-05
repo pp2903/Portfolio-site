@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+.root{
+  max-width: fit-content;
+}
 
 
 * {
@@ -264,5 +263,7 @@ h4.project-type{
 .icon-handle{
   margin: 6px;
 }
+
+
 
 

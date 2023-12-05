@@ -21,9 +21,11 @@ const Projects = () => {
   
   return (
     <>
-      <h2 id="project" className="project-heading ">
-        Projects
-      </h2> 
+     
+
+      <Typography id="project" className='project-heading' variant="h3" component="h3" gutterBottom>
+              Projects
+      </Typography>
 
       <ProjectTopic topic_name="React Projects" projs={val.project_data.react} />
       <ProjectTopic topic_name="Django Projects" projs={val.project_data.django} />
@@ -62,7 +64,8 @@ const ProjectTopic = (props) => {
   if (!projPage) {
     return (
       <span className="projects-container">
-        <h4 class="project-topic">{topic_name}</h4>
+        <Typography variant="h5" align="center" gutterBottom>{topic_name}</Typography>
+        {/* <h4 class="project-topic">{topic_name}</h4> */}
 
         <div className="projects-list">{list}</div>
       </span>
