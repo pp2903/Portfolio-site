@@ -1,7 +1,8 @@
 // import { useState } from "react"
 import { links } from './data'
 import { Typography } from "@mui/material"
-
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 const Social = () => {
   const newLinks = links.map((link) => {
@@ -32,17 +33,29 @@ const Profile = () => {
   
     return (
     <>
-      <div className="top-bar">
+
+    <Box sx={{flexGrow: 1,padding: '3rem 0rem'}} >
+      <Grid className="top-bar" container spacing={1}>
+
+      
         <img  className="profile-pic" src="./profile.png" alt="profile p" />
         <div className="name-heading">
-        <Typography variant="h2" gutterBottom>
+      <Grid item sx={{'alignSelf':'flex-start'}}>
+      <Typography variant="h2" gutterBottom>
         
           Pranshu Priyam
       </Typography>
+        
+        
           <hr />
+            
+          
           <Social />
+          </Grid>
         </div>
-      </div>
+      
+      </Grid>
+    </Box>
     </>
   );
 };
