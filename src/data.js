@@ -41,6 +41,11 @@ export const skills = [
         url:"./icons/vscode.png",
     },
 
+    {
+        name:"Docker",
+        url:"./icons/docker.png",
+    },
+
 
 ]
 
