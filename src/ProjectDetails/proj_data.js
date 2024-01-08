@@ -35,7 +35,7 @@ export const project_data = {
       {
         id: 2,
         name: "Mark's Pizzeria",
-        url: "https://github.com/pp2903/Mark-s-Pizzeria/tree/test",
+        url: "https://github.com/pp2903/PizzaSite/tree/master",
         img: "./pictures/MP.png",
         description:"In Mark's Pizzeria, users experience seamless login/logout functionality while browsing a diverse selection of pizzas. The platform offers an engaging interface for users to explore and order pizzas, ensuring a delightful and personalized experience within the world of Mark's Pizzeria.",
       },
