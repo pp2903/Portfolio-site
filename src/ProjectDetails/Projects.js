@@ -110,6 +110,9 @@ const CardComp = (props) => {
         <Button size="small" onClick={handleDetails}>
           Details
         </Button>
+        <Button size="small" target={proj.link?"_blank":""} href={proj.link?proj.link:"#"}>
+          Visit
+        </Button>
       </CardActions>
     </Card>
   );

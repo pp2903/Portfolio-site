@@ -11,7 +11,7 @@ export const AppContext = createContext();
 const App = () => {
   return (
     <AppContext.Provider value={{ project_data }}>
-      <div className="body">
+      <div className="body" style={{ padding: "10px" }}>
         <Profile />
 
         <Skills />

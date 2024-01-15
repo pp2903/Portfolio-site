@@ -5,7 +5,8 @@ export const project_data = {
         name: "Portfolio site",
         url: "https://github.com/pp2903/Portfolio-site",
         img: "./pictures/Portfolio_site.png",
-        description:"My portfolio website is built using HTML, CSS, JavaScript, and React.js. It's a dynamic showcase of my work, with an inviting homepage, detailed project pages, and a contact section. Thanks to responsive design and interactive features, it effectively presents my skills and projects."
+        description:"My portfolio website is built using HTML, CSS, JavaScript, and React.js. It's a dynamic showcase of my work, with an inviting homepage, detailed project pages, and a contact section. Thanks to responsive design and interactive features, it effectively presents my skills and projects.",
+        link: "https://pranshupriyam.netlify.app/"
       },
       {
         id: 2,
@@ -38,6 +39,7 @@ export const project_data = {
         url: "https://github.com/pp2903/PizzaSite/tree/master",
         img: "./pictures/MP.png",
         description:"In Mark's Pizzeria, users experience seamless login/logout functionality while browsing a diverse selection of pizzas. The platform offers an engaging interface for users to explore and order pizzas, ensuring a delightful and personalized experience within the world of Mark's Pizzeria.",
+        link: "http://64.227.154.180/"
       },
     ],
   };
