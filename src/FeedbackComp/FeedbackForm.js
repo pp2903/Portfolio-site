@@ -61,6 +61,10 @@ const Form = () => {
           variant="h5"
           component="h5"
           gutterBottom
+          sx={{
+            fontFamily: 'Open Sans, sans-serif',
+            fontSize:'40px'
+          }}
         >
           {" "}
           Feedback!

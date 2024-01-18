@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -14,21 +13,31 @@ import { AppContext } from "../App";
 export const ProjTopicContext = React.createContext();
 
 const Projects = () => {
-
   const val = useContext(AppContext);
-  
 
-  
   return (
     <>
-     
-
-      <Typography id="project" className='project-heading' variant="h3" component="h3" gutterBottom>
-              Projects
+      <Typography
+        id="project"
+        className="project-heading"
+        variant="h3"
+        component="h3"
+        gutterBottom
+        sx={{
+          fontFamily: 'Raleway',
+        }}
+      >
+        Projects
       </Typography>
 
-      <ProjectTopic topic_name="React Projects" projs={val.project_data.react} />
-      <ProjectTopic topic_name="Django Projects" projs={val.project_data.django} />
+      <ProjectTopic
+        topic_name="React Projects"
+        projs={val.project_data.react}
+      />
+      <ProjectTopic
+        topic_name="Django Projects"
+        projs={val.project_data.django}
+      />
     </>
   );
 };
@@ -37,16 +46,16 @@ const ProjectTopic = (props) => {
   const { topic_name, projs } = props;
 
   const [projPage, setProjPage] = useState(false);
-  const [currProj,setCurrProj] = useState(null  )
+  const [currProj, setCurrProj] = useState(null);
 
   const list = projs.map((proj) => {
     return (
       <span key={proj.id} className="card-body zoom">
         <CardComp
-          proj= {proj}
-          comp_id = {proj.id}
+          proj={proj}
+          comp_id={proj.id}
           setProjPage={setProjPage}
-          setCurrProj= {setCurrProj}
+          setCurrProj={setCurrProj}
           currProj={currProj}
           style={{ display: "inline" }}
           name={proj.name}
@@ -64,7 +73,11 @@ const ProjectTopic = (props) => {
   if (!projPage) {
     return (
       <span className="projects-container">
-        <Typography variant="h5" align="center" gutterBottom>{topic_name}</Typography>
+        <Typography variant="h5" align="center" gutterBottom  sx={{
+        fontFamily: 'Raleway',
+      }}>
+          {topic_name}
+        </Typography>
         {/* <h4 class="project-topic">{topic_name}</h4> */}
 
         <div className="projects-list">{list}</div>
@@ -72,7 +85,9 @@ const ProjectTopic = (props) => {
     );
   } else {
     return (
-      <ProjTopicContext.Provider value={{ setProjPage, project_data,setCurrProj,currProj}}>
+      <ProjTopicContext.Provider
+        value={{ setProjPage, project_data, setCurrProj, currProj }}
+      >
         <ProjectPage />
       </ProjTopicContext.Provider>
     );
@@ -80,22 +95,24 @@ const ProjectTopic = (props) => {
 };
 
 const CardComp = (props) => {
-  const { setProjPage, setCurrProj,proj } = props;
-  
-  
-  const handleDetails = (e) => {
-    setProjPage(true)
-    // console.log(proj)
-    setCurrProj(proj)
-    
+  const { setProjPage, setCurrProj, proj } = props;
 
+  const handleDetails = (e) => {
+    setProjPage(true);
+    // console.log(proj)
+    setCurrProj(proj);
   };
   const detailsCardRef = useRef();
   return (
     <Card ref={detailsCardRef} sx={{ maxWidth: 345 }}>
-      <CardMedia style={{backgroundSize:'contain'}} sx={{ height: 165 }} image={props.img} title={props.name} />
+      <CardMedia
+        style={{ backgroundSize: "contain" }}
+        sx={{ height: 165 }}
+        image={props.img}
+        title={props.name}
+      />
       <CardContent>
-        <Typography name="name"  gutterBottom variant="h5" component="div">
+        <Typography name="name" gutterBottom variant="h5" component="div">
           {props.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -110,9 +127,15 @@ const CardComp = (props) => {
         <Button size="small" onClick={handleDetails}>
           Details
         </Button>
-        <Button size="small" target={proj.link?"_blank":""} href={proj.link?proj.link:"#"}>
-          Visit
-        </Button>
+        {proj.link && (
+          <Button
+            size="small"
+            target={proj.link ? "_blank" : ""}
+            href={proj.link ? proj.link : "#"}
+          >
+            Visit
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

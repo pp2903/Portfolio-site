@@ -45,7 +45,14 @@ const Profile = () => {
           <img className="profile-pic" src="./profile.png" alt="profile p" />
           <div className="name-heading">
             <Grid item sx={{ alignSelf: "flex-start" }}>
-              <Typography variant="h2" gutterBottom>
+              <Typography
+                variant="h2"
+                gutterBottom
+                sx={{
+                  fontFamily: 'Open Sans, sans-serif',
+                  color:'#cccc'
+                }}
+              >
                 Pranshu Priyam
               </Typography>
 
