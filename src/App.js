@@ -7,19 +7,29 @@ import { createContext } from "react";
 import { project_data } from "./ProjectDetails/proj_data";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+export const AppContext = createContext();
+
 const theme = createTheme({
   typography: {
-    fontFamily: 'Open Sans, sans-serif',
-    
-   
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
   },
 });
-export const AppContext = createContext();
 
 const App = () => {
   return (
-    <AppContext.Provider value={{ project_data }}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <AppContext.Provider value={{ project_data }}>
         <div className="body" style={{ padding: "10px" }}>
           <Profile />
 
@@ -29,8 +39,8 @@ const App = () => {
 
           <FeedbackForm />
         </div>
-      </ThemeProvider>
-    </AppContext.Provider>
+      </AppContext.Provider>
+    </ThemeProvider>
   );
 };
 

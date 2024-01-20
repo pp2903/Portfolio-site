@@ -48,10 +48,7 @@ const Profile = () => {
               <Typography
                 variant="h2"
                 gutterBottom
-                sx={{
-                  fontFamily: 'Open Sans, sans-serif',
-                  color:'#cccc'
-                }}
+                sx={{ fontFamily: 'Roboto, sans-serif' }}
               >
                 Pranshu Priyam
               </Typography>

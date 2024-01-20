@@ -23,9 +23,7 @@ const Projects = () => {
         variant="h3"
         component="h3"
         gutterBottom
-        sx={{
-          fontFamily: 'Raleway',
-        }}
+        sx={{ fontFamily: "Roboto, sans-serif" }}
       >
         Projects
       </Typography>
@@ -73,9 +71,12 @@ const ProjectTopic = (props) => {
   if (!projPage) {
     return (
       <span className="projects-container">
-        <Typography variant="h5" align="center" gutterBottom  sx={{
-        fontFamily: 'Raleway',
-      }}>
+        <Typography
+          variant="h5"
+          align="center"
+          gutterBottom
+          sx={{ fontFamily: "Roboto, sans-serif" }}
+        >
           {topic_name}
         </Typography>
         {/* <h4 class="project-topic">{topic_name}</h4> */}

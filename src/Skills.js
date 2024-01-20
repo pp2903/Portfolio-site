@@ -23,9 +23,7 @@ const Skills = () => {
         variant="h3"
         component="h3"
         gutterBottom
-        sx={{
-          fontFamily: 'Raleway',
-        }}
+        sx={{ fontFamily: 'Roboto, sans-serif' }}
       >
         Skills
       </Typography>
