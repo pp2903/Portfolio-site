@@ -1,10 +1,26 @@
 import "./proj.css";
-import { useContext,useState } from "react";
+import { useContext, useState } from "react";
 import { ProjTopicContext } from "./Projects.js";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Card, CardMedia, CardContent, CardActions, Typography, Button,Grid } from "@mui/material";
-import { FaHtml5, FaCss3Alt, FaJsSquare,  FaReact,FaGitAlt } from 'react-icons/fa'; // Import icons from Font Awesome
-
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Typography,
+  Button,
+  Grid,
+} from "@mui/material";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaReact,
+  FaGitAlt,
+  FaPython,
+  FaServer,
+} from "react-icons/fa"; // Import icons from Font Awesome
+import { SiRedux } from "react-icons/si";
 
 const ProjectPage = () => {
   const value = useContext(ProjTopicContext);
@@ -32,8 +48,8 @@ const ProjCard = (props) => {
   const handleImageClick = (newImage) => {
     setSelectedImage(newImage);
   };
-    return (
-      <Card sx={{ maxWidth: 1100, padding: 1, marginBottom: 2 }}>
+  return (
+    <Card sx={{ maxWidth: 1100, padding: 1, marginBottom: 2 }}>
       <Button size="small" onClick={props.handleBack}>
         <ArrowBackIcon color="primary" sx={{ fontSize: 45 }} />
       </Button>
@@ -45,8 +61,11 @@ const ProjCard = (props) => {
                 component="img"
                 sx={{
                   height: 400,
-                  objectFit: "contain", // Ensures the image fits without cropping
-                  width: "100%", // Ensures the image fills the container
+                  objectFit: "contain", 
+                  width: "100%",
+                  "@media (max-width: 600px)": {
+                    height: "20%",
+                  },
                 }}
                 image={selectedImage}
                 title="Main Image"
@@ -59,11 +78,12 @@ const ProjCard = (props) => {
                     component="img"
                     sx={{
                       height: 100,
-                      objectFit: "contain", // Ensures the image fits without cropping
-                      width: "100%", // Ensures the image fills the container
+                      objectFit: "contain",
+                      width: "100%", 
                       cursor: "pointer",
-                      border: selectedImage === image ? '2px solid black' : 'none', // Add border for active image
-                      borderRadius: 1, // Optional: Add border radius for aesthetics
+                      border:
+                        selectedImage === image ? "2px solid black" : "none",
+                      borderRadius: 1,
                     }}
                     image={image}
                     title={`Image ${index + 1}`}
@@ -87,17 +107,41 @@ const ProjCard = (props) => {
             <Typography gutterBottom variant="h5" component="div">
               Technologies Used
             </Typography>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <FaHtml5 size={30} style={{ marginRight: 10 }} /> {/* HTML5 icon */}
-              <FaCss3Alt size={30} style={{ marginRight: 10 }} /> {/* CSS3 icon */}
-              <FaJsSquare size={30} style={{ marginRight: 10 }} /> {/* JavaScript icon */}
-              <FaReact size={30} style={{ marginRight: 10 }} /> {/* React icon */}
-              <FaGitAlt size={30} style={{ marginRight: 10 }} /> {/* Git icon */}
+            <div
+              className="technologies-icons"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              {proj.technologies.includes("html") && (
+                <FaHtml5 size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("css") && (
+                <FaCss3Alt size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("js") && (
+                <FaJsSquare size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("react") && (
+                <FaReact size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("python") && (
+                <FaPython size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("git") && (
+                <FaGitAlt size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("redux") && (
+                <SiRedux size={30} style={{ marginRight: 10 }} />
+              )}
+              {proj.technologies.includes("nginx") && (
+                <FaServer size={30} style={{ marginRight: 10 }} />
+              )}
+
+              {/* Git icon */}
               {/* Add more icons as needed */}
             </div>
           </CardContent>
           <CardActions>
-            <Button size="small">Visit</Button>
+            <Button href={proj.link} size="small">Visit</Button>
           </CardActions>
         </Grid>
       </Grid>
