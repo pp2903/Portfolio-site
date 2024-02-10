@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import { useState, useRef, useContext } from "react";
 import ProjectPage from "./ProjectPage";
 import { AppContext } from "../App";
+import { useMediaQuery, Grid } from "@mui/material";
 
 export const ProjTopicContext = React.createContext();
 
@@ -36,7 +37,7 @@ const Projects = () => {
       </Box>
       <Box sx={{ display: "flex", justifyContent: "around" }}>
         <ProjectTopic
-          topic_name="React Projects"
+          topic_name="Django Projects"
           projs={val.project_data.django}
         />
       </Box>
@@ -46,6 +47,7 @@ const Projects = () => {
 
 const ProjectTopic = (props) => {
   const { topic_name, projs } = props;
+  const isMediumScreenOrLess = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   const [projPage, setProjPage] = useState(false);
   const [currProj, setCurrProj] = useState(null);
@@ -72,31 +74,27 @@ const ProjectTopic = (props) => {
 
   // returns the card list
 
-  if (!projPage) {
-    return (
-      <span className="projects-container">
-        <Typography
-          variant="h5"
-          align="center"
-          gutterBottom
-          sx={{ fontFamily: "Roboto, sans-serif" }}
-        >
-          {topic_name}
-        </Typography>
-
-        <div className="projects-list">{list}</div>
-      </span>
-    );
-  } else {
-    return (
-      <ProjTopicContext.Provider
-        value={{ setProjPage, project_data, setCurrProj, currProj }}
+  return (
+    <Grid
+      container
+      direction="column"
+      alignItems={isMediumScreenOrLess ? "center" : "flex-start"} // Align topic_name centered on smaller screens, flex-start on larger screens
+      
+    >
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ fontFamily: "Roboto, sans-serif", padding: isMediumScreenOrLess ? "0" : "15px 0", // Apply padding conditionally based on screen size
+        margin: isMediumScreenOrLess ? "0" : "15px 0", }}
       >
-        <ProjectPage />
-      </ProjTopicContext.Provider>
-    );
-  }
+        {topic_name}
+      </Typography>
+
+      <div className="projects-list">{list}</div>
+    </Grid>
+  );
 };
+
 
 const CardComp = (props) => {
   const { setProjPage, setCurrProj, proj } = props;

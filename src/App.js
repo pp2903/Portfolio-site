@@ -32,11 +32,8 @@ const App = () => {
       <AppContext.Provider value={{ project_data }}>
         <div className="body" style={{ padding: "10px" }}>
           <Profile />
-
           <Skills />
-
           <Projects />
-
           <FeedbackForm />
         </div>
       </AppContext.Provider>
