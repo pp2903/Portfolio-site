@@ -6,7 +6,7 @@ const Skill = (props) => {
 
   return (
     <>
-      <img className="icon-handle zoom" src={url} alt={name} />
+      <img style={{'maxWidth':'48px'}} className="icon-handle zoom" src={url} alt={name} />
     </>
   );
 };

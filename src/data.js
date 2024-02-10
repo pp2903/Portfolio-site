@@ -56,6 +56,10 @@ export const skills = [
     name: "Tailwind",
     url: "./icons/tailwind.png",
   },
+  {
+    name: "Celery",
+    url: "./icons/celery.png",
+  },
 ];
 
 export const links = [

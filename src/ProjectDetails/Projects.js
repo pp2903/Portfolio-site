@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
 import { project_data } from "./proj_data";
-
+import { Box } from "@mui/material";
 import { useState, useRef, useContext } from "react";
 import ProjectPage from "./ProjectPage";
 import { AppContext } from "../App";
@@ -28,14 +28,18 @@ const Projects = () => {
         Projects
       </Typography>
 
-      <ProjectTopic
-        topic_name="React Projects"
-        projs={val.project_data.react}
-      />
-      <ProjectTopic
-        topic_name="Django Projects"
-        projs={val.project_data.django}
-      />
+      <Box sx={{ display: "flex", justifyContent: "around" }}>
+        <ProjectTopic
+          topic_name="React Projects"
+          projs={val.project_data.react}
+        />
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "around" }}>
+        <ProjectTopic
+          topic_name="React Projects"
+          projs={val.project_data.django}
+        />
+      </Box>
     </>
   );
 };
@@ -58,7 +62,7 @@ const ProjectTopic = (props) => {
           style={{ display: "inline" }}
           name={proj.name}
           url={proj.url}
-          img={proj.img}
+          img={proj.img[0]}
           desc={proj.description}
         />
         <br />
@@ -79,7 +83,6 @@ const ProjectTopic = (props) => {
         >
           {topic_name}
         </Typography>
-        {/* <h4 class="project-topic">{topic_name}</h4> */}
 
         <div className="projects-list">{list}</div>
       </span>
@@ -105,7 +108,7 @@ const CardComp = (props) => {
   };
   const detailsCardRef = useRef();
   return (
-    <Card ref={detailsCardRef} sx={{ maxWidth: 345 }}>
+    <Card ref={detailsCardRef} sx={{ maxWidth: 345, padding: 1 }}>
       <CardMedia
         style={{ backgroundSize: "contain" }}
         sx={{ height: 165 }}
