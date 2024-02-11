@@ -4,20 +4,21 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
-import { project_data } from "./proj_data";
 import { Box } from "@mui/material";
 import { useState, useRef, useContext } from "react";
 import ProjectPage from "./ProjectPage";
 import { AppContext } from "../App";
 import { useMediaQuery, Grid } from "@mui/material";
 
-export const ProjTopicContext = React.createContext();
-
+export const ProjectContext = React.createContext();
 const Projects = () => {
+  const [projPage, setProjPage] = useState(false);
+  const [currProj, setCurrProj] = useState(null);
   const val = useContext(AppContext);
-
   return (
-    <>
+    <ProjectContext.Provider
+      value={{ projPage, setProjPage, currProj, setCurrProj }}
+    >
       <Typography
         id="project"
         className="project-heading"
@@ -29,28 +30,38 @@ const Projects = () => {
         Projects
       </Typography>
 
-      <Box sx={{ display: "flex", justifyContent: "around" }}>
-        <ProjectTopic
-          topic_name="React Projects"
-          projs={val.project_data.react}
-        />
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "around" }}>
-        <ProjectTopic
-          topic_name="Django Projects"
-          projs={val.project_data.django}
-        />
-      </Box>
-    </>
+      {projPage && currProj.type === "react" ? (
+        <ProjectPage />
+      ) : (
+        <Box sx={{ display: "flex", justifyContent: "around" }}>
+          <ProjectTopic
+            topic_name="React Projects"
+            projs={val.project_data.react}
+          />
+        </Box>
+      )}
+
+      {projPage && currProj.type === "django" ? (
+        <ProjectPage />
+      ) : (
+        <Box sx={{ display: "flex", justifyContent: "around" }}>
+          <ProjectTopic
+            topic_name="Django Projects"
+            projs={val.project_data.django}
+          />
+        </Box>
+      )}
+    </ProjectContext.Provider>
   );
 };
 
 const ProjectTopic = (props) => {
   const { topic_name, projs } = props;
-  const isMediumScreenOrLess = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const isMediumScreenOrLess = useMediaQuery((theme) =>
+    theme.breakpoints.down("md")
+  );
 
-  const [projPage, setProjPage] = useState(false);
-  const [currProj, setCurrProj] = useState(null);
+  const { setProjPage, currProj, setCurrProj } = useContext(ProjectContext);
 
   const list = projs.map((proj) => {
     return (
@@ -71,7 +82,6 @@ const ProjectTopic = (props) => {
       </span>
     );
   });
-
   // returns the card list
 
   return (
@@ -79,13 +89,15 @@ const ProjectTopic = (props) => {
       container
       direction="column"
       alignItems={isMediumScreenOrLess ? "center" : "flex-start"} // Align topic_name centered on smaller screens, flex-start on larger screens
-      
     >
       <Typography
         variant="h5"
         gutterBottom
-        sx={{ fontFamily: "Roboto, sans-serif", padding: isMediumScreenOrLess ? "0" : "15px 0", // Apply padding conditionally based on screen size
-        margin: isMediumScreenOrLess ? "0" : "15px 0", }}
+        sx={{
+          fontFamily: "Roboto, sans-serif",
+          padding: isMediumScreenOrLess ? "0" : "15px 0", // Apply padding conditionally based on screen size
+          margin: isMediumScreenOrLess ? "0" : "15px 0",
+        }}
       >
         {topic_name}
       </Typography>
@@ -95,13 +107,15 @@ const ProjectTopic = (props) => {
   );
 };
 
-
 const CardComp = (props) => {
-  const { setProjPage, setCurrProj, proj } = props;
+  const { proj } = props;
 
-  const handleDetails = (e) => {
+  const value = useContext(ProjectContext);
+
+  const { setProjPage, setCurrProj } = value;
+
+  const handleDetails = () => {
     setProjPage(true);
-    // console.log(proj)
     setCurrProj(proj);
   };
   const detailsCardRef = useRef();
@@ -130,11 +144,7 @@ const CardComp = (props) => {
           Details
         </Button>
         {proj.link && (
-          <Button
-            size="small"
-            target={proj.link ? "_blank" : ""}
-            href={proj.link ? proj.link : "#"}
-          >
+          <Button size="small" href={proj.link}>
             Visit
           </Button>
         )}

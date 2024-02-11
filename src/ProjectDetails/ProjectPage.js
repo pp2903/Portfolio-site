@@ -1,6 +1,6 @@
 import "./proj.css";
 import { useContext, useState } from "react";
-import { ProjTopicContext } from "./Projects.js";
+import { ProjectContext } from "./Projects.js";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
   Card,
@@ -23,25 +23,27 @@ import {
 import { SiRedux } from "react-icons/si";
 
 const ProjectPage = () => {
-  const value = useContext(ProjTopicContext);
+  const value = useContext(ProjectContext);
 
-  const setProjPage = value.setProjPage;
+  const {currProj,setCurrProj,setProjPage} = value
 
   const handleBack = () => {
     setProjPage(false);
+    setCurrProj(null);
   };
 
   return (
     <>
       <div className="project-page-container">
-        <ProjCard handleBack={handleBack} />
+        <ProjCard proj={currProj} handleBack={handleBack} />
       </div>
     </>
   );
 };
 
 const ProjCard = (props) => {
-  const value = useContext(ProjTopicContext);
+  
+  const value = useContext(ProjectContext);
   const proj = value.currProj;
   const [selectedImage, setSelectedImage] = useState(proj.img[0]);
 
@@ -72,7 +74,7 @@ const ProjCard = (props) => {
               />
             </Grid>
             <Grid item container spacing={2} sx={{ paddingTop: 2 }}>
-              {proj.img.map((image, index) => (
+              {proj?.img.map((image, index) => (
                 <Grid item key={index} xs={4}>
                   <CardMedia
                     component="img"
@@ -97,10 +99,10 @@ const ProjCard = (props) => {
         <Grid item xs={12} sm={6}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              <strong>{proj.name}</strong>
+              <strong>{proj?.name}</strong>
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {proj.description}
+              {proj?.description}
             </Typography>
           </CardContent>
           <CardContent>
@@ -111,28 +113,28 @@ const ProjCard = (props) => {
               className="technologies-icons"
               style={{ display: "flex", alignItems: "center" }}
             >
-              {proj.technologies.includes("html") && (
+              {proj?.technologies.includes("html") && (
                 <FaHtml5 size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("css") && (
+              {proj?.technologies.includes("css") && (
                 <FaCss3Alt size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("js") && (
+              {proj?.technologies.includes("js") && (
                 <FaJsSquare size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("react") && (
+              {proj?.technologies.includes("react") && (
                 <FaReact size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("python") && (
+              {proj?.technologies.includes("python") && (
                 <FaPython size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("git") && (
+              {proj?.technologies.includes("git") && (
                 <FaGitAlt size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("redux") && (
+              {proj?.technologies.includes("redux") && (
                 <SiRedux size={30} style={{ marginRight: 10 }} />
               )}
-              {proj.technologies.includes("nginx") && (
+              {proj?.technologies.includes("nginx") && (
                 <FaServer size={30} style={{ marginRight: 10 }} />
               )}
 
@@ -141,7 +143,7 @@ const ProjCard = (props) => {
             </div>
           </CardContent>
           <CardActions>
-            <Button href={proj.link} size="small">Visit</Button>
+            <Button href={proj?.link} size="small">Visit</Button>
           </CardActions>
         </Grid>
       </Grid>

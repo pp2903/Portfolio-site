@@ -87,7 +87,7 @@ const Profile = () => {
   const handleDownload = () => {
     // Implement download logic here
     // For example, you can use window.open() to open a download link
-    // window.open('/path-to-resume.pdf', '_blank');
+    window.open('./RESUME___Pranshu.pdf', '_blank');
   };
 
   const isMediumScreenOrLess = useMediaQuery((theme) =>
