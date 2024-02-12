@@ -32,6 +32,10 @@ export const skills = [
     url: "./icons/react.png",
   },
   {
+    name: "Next",
+    url: "./icons/nextjs.png",
+  },
+  {
     name: "Git",
     url: "./icons/git.png",
   },
@@ -60,6 +64,7 @@ export const skills = [
     name: "Celery",
     url: "./icons/celery.png",
   },
+  
 ];
 
 export const links = [

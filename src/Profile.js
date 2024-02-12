@@ -1,20 +1,11 @@
 import { links } from "./data";
-import { Button, Grid, Typography,ThemeProvider, createTheme } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-//custom theme for buttons
-const theme = createTheme({
-  overrides: {
-    MuiButton: {
-      root: {
-        paddingTop: 0, // Set padding top to 0
-      },
-    },
-  },
-});
+
 
 
 
